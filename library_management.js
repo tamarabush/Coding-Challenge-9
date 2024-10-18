@@ -116,7 +116,46 @@ class VIPPatron extends Patron {
     }
 }
 
-  
+
+
+//TASK 6 - Create and Manage Sections and Patrons:
+
+//create sections
+const fictionSection = new Section("Fiction");
+const scienceSection = new Section("Science");
+
+//create books
+const book1 = new Book("The Catcher in the Rye", "J.D. Salinger", "1234567890");
+const book2 = new Book("Normal People", "Sally Rooney", "0987654321");
+const book3 = new Book("A Brief History of Time", "Stephen Hawking", "1122334455");
+
+//add books to sections
+fictionSection.addBook(book1);
+fictionSection.addBook(book2);
+scienceSection.addBook(book3);
+
+//create patrons
+const patron1 = new Patron("Josie");
+const vipPatron1 = new VIPPatron("Diana");
+
+//patrons borrowing books
+patron1.borrowBook(book1);
+vipPatron1.borrowBook(book2);
+vipPatron1.borrowBook(book3);
+
+//patrons returning books
+patron1.returnBook(book1);
+vipPatron1.returnBook(book2);
+
+//calculate total available books
+console.log(`Total available books in Fiction section: ${fictionSection.calculateTotalBooksAvailable()}`);
+console.log(`Total available books in Science section: ${scienceSection.calculateTotalBooksAvailable()}`);
+
+//list books in sections
+console.log("Books in Fiction Section:\n" + fictionSection.listBooks());
+console.log("Books in Science Section:\n" + scienceSection.listBooks());
+
+
 
   
 
