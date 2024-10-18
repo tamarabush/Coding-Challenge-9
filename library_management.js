@@ -49,3 +49,40 @@ listBooks() {
     //using the reduce method to list all books in the section, to show title and availability
   }   
 }
+
+
+
+//TASK 3 - Create a Patron Class:
+
+class Patron {
+    constructor(name) {
+        this.name = name;
+        this.borrowedBooks = [];
+    } //created class patron 
+
+    borrowBook(book) {
+        if (book.isAvailable) {
+            book.isAvailable = false;
+            this.borrowedBooks.push(book);
+        //used an if statement to see if the book is available, pushed the books in the empty array
+        }
+        else {
+            console.log(`${book.title} is not available at this time.`);
+        //if book is not available it wil console log this message 
+        }
+    }
+
+    returnBook (book) {
+        const borrowedBook = this.borrowedBooks.find(boo => boo === book);
+        if (borrowedBook) {
+            book.isAvailable = true;
+        this.borrowedBooks = this.borrowedBooks.filter(boo => boo !== book);
+        //using in if statement, find, and filter method to see if the book is borrowed
+        }
+        else {
+            console.log(`This book was not borrowed by ${this.name}.`);
+        //is the book was not borrowed it will console this message
+        }      
+    }
+}
+
