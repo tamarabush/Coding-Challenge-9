@@ -42,6 +42,13 @@ getAvailableBooks() {
     //returns the total number of available books in the section
 }
 
+
+//TASK 5 - Create VIPPatron class with inheritance from Patron:
+calculateTotalBooksAvailable() {
+    return this.getAvailableBooks();
+} // calculates the total number of books that are available 
+
+
 listBooks() {
     return this.books.reduce((list, book) => {
         return list + (`${book.title} - ${book.isAvailable ? "Available" : "Borrowed"}\n`);
@@ -109,36 +116,8 @@ class VIPPatron extends Patron {
     }
 }
 
+  
 
-
-//TASK 5 - Handle Books Borrowing and Returning:
-
-class Section {
-    constructor(name) {
-      this.name = name;
-      this.books = [];
-    }
-  
-    addBook(book) {
-      this.books.push(book);
-    }
-  
-    getAvailableBooks() {
-      return this.books.filter(book => book.isAvailable).length;
-    }
-  
-    calculateTotalBooksAvailable() {
-      return this.getAvailableBooks();
-    }
-  
-    listBooks() {
-        return this.books.reduce((list, book) => {
-            return list + (`${book.title} - ${book.isAvailable ? "Available" : "Borrowed"}\n`);
-        }, "");
-    }
-  }
-
-  
   
 
   
