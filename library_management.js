@@ -108,3 +108,37 @@ class VIPPatron extends Patron {
         }
     }
 }
+
+
+
+//TASK 5 - Handle Books Borrowing and Returning:
+
+class Section {
+    constructor(name) {
+      this.name = name;
+      this.books = [];
+    }
+  
+    addBook(book) {
+      this.books.push(book);
+    }
+  
+    getAvailableBooks() {
+      return this.books.filter(book => book.isAvailable).length;
+    }
+  
+    calculateTotalBooksAvailable() {
+      return this.getAvailableBooks();
+    }
+  
+    listBooks() {
+        return this.books.reduce((list, book) => {
+            return list + (`${book.title} - ${book.isAvailable ? "Available" : "Borrowed"}\n`);
+        }, "");
+    }
+  }
+
+  
+  
+
+  
