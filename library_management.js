@@ -43,7 +43,7 @@ getAvailableBooks() {
 }
 
 
-//TASK 5 - Create VIPPatron class with inheritance from Patron:
+//TASK 5 - Handle Books Borrowing and Returning:
 calculateTotalBooksAvailable() {
     return this.getAvailableBooks();
 } // calculates the total number of books that are available 
